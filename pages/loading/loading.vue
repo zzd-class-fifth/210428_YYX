@@ -7,7 +7,8 @@
 				<image class="loding_text" src="@/static/img/loding_text.png" mode="widthFix"></image>
 				<view class="box">
 					<image class="loding_d" src="../../static/img/loding_d.png" mode="widthFix"
-						v-for="(item,index) in dots" :key="index" :style="'opacity:' + (index>showDotIndex?0:1)"></image>
+						v-for="(item,index) in dots" :key="index" :style="'opacity:' + (index>showDotIndex?0:1)">
+					</image>
 				</view>
 			</view>
 		</view>
@@ -30,6 +31,12 @@
 			this.dealtyDot = setInterval(() => {
 				this.showDotIndex = (this.showDotIndex + 1) % this.dots.length;
 			}, 1000);
+			
+			setTimeout(() => {
+				uni.redirectTo({
+					url: "/pages/login/login",
+				})
+			}, 2000);
 		},
 		beforeDestroy() {
 			if (this.dealtyDot) {

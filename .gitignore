@@ -2,6 +2,7 @@
 node_modules
 .history
 unpackage
+.hbuilderx
 ~*
 #忽略压缩文件
 *.zip

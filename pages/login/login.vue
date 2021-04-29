@@ -19,7 +19,7 @@
 					<picker class="picker_city" :range="cityList">市区</picker>
 				</view>
 			</view>
-			
+
 			<image class="p1_2" src="@/static/img/p1_2.png" mode="widthFix"></image>
 		</view>
 	</view>
@@ -30,9 +30,52 @@
 		data() {
 			return {
 				userName: '玩家名称',
-				provincesList: ['1', '2', '3'],
-				cityList: ['1', '2', '3'],
+				provincesList: [],
+				cityList: [],
 			};
+		},
+		onLoad() {
+			uni.hideHomeButton();
+
+			uni.showLoading({
+				mask: true,
+			});
+
+			this.request.get_province({
+				success: (res) => {
+					switch (res.code) {
+						case 200:
+							this.provincesList = res.data;
+							break;
+						default:
+							uni.showToast({
+								title: res.message,
+							})
+							break;
+					}
+				}
+			});
+
+			this.request.get_city({
+				success(res) {
+					switch (res.code) {
+						case 200:
+							this.cityList = res.data;
+							break;
+						default:
+							uni.showToast({
+								title: res.message,
+							})
+							break;
+					}
+				}
+			});
+
+			this.request.is_authorization({
+				success: () => {
+					this.userName = uni.getStorageSync('userInfo').nickName;
+				}
+			});
 		}
 	}
 </script>
@@ -87,7 +130,7 @@
 					picker {
 						width: 100%;
 						height: 100%;
-						
+
 						display: flex;
 						justify-content: center;
 						align-items: center;
@@ -103,7 +146,8 @@
 				}
 
 			}
-			.p1_2{
+
+			.p1_2 {
 				margin-top: 50rpx;
 				width: 287rpx;
 			}

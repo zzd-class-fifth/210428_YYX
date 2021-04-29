@@ -1,15 +1,11 @@
 <script>
-	import request from '@/static/js/request.js';
 	export default {
-		onLaunch: function() {
-			console.log('App Launch')
-		},
-		onShow: function() {
-			console.log('App Show')
-			request.is_authorization();
-		},
-		onHide: function() {
-			console.log('App Hide')
+		onLaunch: function() {},
+		onShow: function() {},
+		onHide: function() {},
+		data() {
+			return {
+			}
 		}
 	}
 </script>
