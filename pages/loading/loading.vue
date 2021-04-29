@@ -29,7 +29,6 @@
 		onLoad() {
 			this.dealtyDot = setInterval(() => {
 				this.showDotIndex = (this.showDotIndex + 1) % this.dots.length;
-				console.log(this.showDotIndex);
 			}, 1000);
 		},
 		beforeDestroy() {
