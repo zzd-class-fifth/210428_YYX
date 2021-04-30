@@ -5,36 +5,25 @@
 		<navButton class="navButton"></navButton>
 
 		<infoTop class="infoTop"></infoTop>
-
-		<pop></pop>
 	</view>
 </template>
 
 <script>
-	import game from "@/pages/main/game/game.vue";
-	import navButton from "@/pages/main/navBottom/navBottom.vue";
-	import infoTop from "@/pages/main/infoTop/infoTop.vue";
-
-	import pop from '@/pages/pop/pop.vue';
+	import game from "./game/game.vue";
+	import navButton from "./navBottom/navBottom.vue";
+	import infoTop from "./infoTop/infoTop.vue";
 
 	export default {
+		name: "wcw-main-game",
 		data() {
 			return {
-			}
-		},
-		onLoad() {
-			// #ifndef H5
-			uni.hideHomeButton();
-			// #endif
-		},
-		methods: {
 
+			};
 		},
 		components: {
 			game,
 			navButton,
 			infoTop,
-			pop,
 		}
 	}
 </script>

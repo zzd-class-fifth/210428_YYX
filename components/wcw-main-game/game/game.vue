@@ -36,7 +36,7 @@
 		methods: {
 			onClickBuild(id) {
 				uni.$emit('showPop', {
-					name: "buildInfo",
+					name: "wcw-pop-build-info",
 					param: {
 						id,
 					}

@@ -34,6 +34,7 @@
 
 <script>
 	export default {
+		name: "wcw-login",
 		data() {
 			return {
 				userName: '玩家名称',

@@ -74,9 +74,9 @@ export default {
 								.userInfo);
 						}
 
-						uni.redirectTo({
-							url: "/pages/login/login",
-						});
+						uni.$emit('redirectPage', {
+							name: 'wcw-login',
+						})
 					}
 				})
 				break;
@@ -143,10 +143,10 @@ export default {
 							uni.setStorageSync('userInfo', userInfo);
 
 							uni.setStorageSync('gain', d.gain);
-						}
+						};
 
-						uni.redirectTo({
-							url: "/pages/main/main",
+						uni.$emit('redirectPage', {
+							name: "wcw-main-game",
 						})
 						break;
 					default:

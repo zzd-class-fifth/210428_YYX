@@ -11,13 +11,14 @@
 				</view>
 			</view>
 
-			<image class="close" :src="getImgUrl('close.png')" mode="widthFix" @click="onClickClose"></image>
+			<image class="close common_pop_close_button" :src="getImgUrl('close.png')" mode="widthFix" @click="onClickClose"></image>
 		</view>
 	</view>
 </template>
 
 <script>
 	export default {
+		name: "wcw-pop-rule",
 		data() {
 			return {
 

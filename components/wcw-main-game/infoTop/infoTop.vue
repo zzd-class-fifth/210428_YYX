@@ -44,7 +44,7 @@
 		methods: {
 			onClickShowRule() {
 				uni.$emit('showPop', {
-					name: 'rule'
+					name: 'wcw-pop-rule'
 				});
 			}
 		}

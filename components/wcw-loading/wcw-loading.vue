@@ -16,6 +16,7 @@
 
 <script>
 	export default {
+		name: "wcw-loading",
 		data() {
 			return {
 				dots: [{}, {}, {}],
@@ -28,7 +29,7 @@
 				this.request.is_authorization({});
 			}
 		},
-		onLoad() {
+		mounted() {
 			this.dealtyDot = setInterval(() => {
 				this.showDotIndex = (this.showDotIndex + 1) % this.dots.length;
 			}, 1000);
@@ -46,7 +47,7 @@
 	}
 </script>
 
-<style>
+<style lang="less">
 	.loading {
 		display: flex;
 		align-items: center;

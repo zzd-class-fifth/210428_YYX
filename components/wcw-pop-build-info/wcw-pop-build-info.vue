@@ -37,6 +37,7 @@
 
 <script>
 	export default {
+		name: "wcw-pop-build-info",
 		data: () => {
 			return {
 				starList: [{}, {}, {}, {}, {}],
