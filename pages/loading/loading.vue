@@ -1,14 +1,13 @@
 <template>
 	<view class="loading common_bg common_pg">
 		<view class="wrap">
-			<image class="loading_title" src="@/static/img/loding_title.png" mode="widthFix"></image>
-			<image class="loding_dase" src="@/static/img/loding_dase.png" mode="widthFix"></image>
+			<image class="loading_title" :src="getImgUrl('loding_title.png')" mode="widthFix"></image>
+			<image class="loding_dase" :src="getImgUrl('loding_dase.png')" mode="widthFix"></image>
 			<view class="content">
-				<image class="loding_text" src="@/static/img/loding_text.png" mode="widthFix"></image>
+				<image class="loding_text" :src="getImgUrl('loding_text.png')" mode="widthFix"></image>
 				<view class="box">
-					<image class="loding_d" src="../../static/img/loding_d.png" mode="widthFix"
-						v-for="(item,index) in dots" :key="index" :style="'opacity:' + (index>showDotIndex?0:1)">
-					</image>
+					<view class="loding_d" v-for="(item,index) in dots" :key="index"
+						:style="'opacity:' + (index>showDotIndex?0:1)"></view>
 				</view>
 			</view>
 		</view>
@@ -25,17 +24,17 @@
 			}
 		},
 		methods: {
-
+			gotoNext() {
+				this.request.is_authorization({});
+			}
 		},
 		onLoad() {
 			this.dealtyDot = setInterval(() => {
 				this.showDotIndex = (this.showDotIndex + 1) % this.dots.length;
 			}, 1000);
-			
+
 			setTimeout(() => {
-				uni.redirectTo({
-					url: "/pages/login/login",
-				})
+				this.gotoNext();
 			}, 2000);
 		},
 		beforeDestroy() {
@@ -43,7 +42,7 @@
 				clearInterval(this.dealtyDot);
 				this.dealtyDot = null;
 			}
-		}
+		},
 	}
 </script>
 
@@ -92,5 +91,8 @@
 
 	.loding_d {
 		width: 5rpx;
+		height: 5rpx;
+		border-radius: 100%;
+		background-color: #FFFFFF;
 	}
 </style>
